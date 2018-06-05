@@ -263,3 +263,4 @@ __pycache__/
 /ReadWrite/ReadWrite.vcxproj.filters
 *.vcxproj
 *.filters
+*.sln
