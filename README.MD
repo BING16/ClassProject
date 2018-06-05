@@ -1,0 +1,4 @@
+基于XY双轴移动LED的图片再现装置
+
+author：QINBINGJIA, LIUHENG, NIUXIANGFU
+time：2018.05
