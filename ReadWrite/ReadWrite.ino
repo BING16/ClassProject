@@ -26,10 +26,10 @@ SoftwareSerial BT(9, 10);  //新建对象，接收脚为9(对应蓝牙的T)，�
 
 File myFile;
 int N = 145;
-int STEPXX = 128000;
-int STEPYY = 120000;
-int STEPX = STEPXX / N;    //每布的距离，越大越长。X轴大概640对应200像素
-int STEPY = STEPYY / N; //Y轴大概600对应200像素
+int STEPXX = 12800;
+int STEPYY = 12000;
+int STEPX = STEPXX / N *10;    //每布的距离，越大越长。X轴大概640对应200像素
+int STEPY = STEPYY / N *10; //Y轴大概600对应200像素
 int V = 90;    //速度相关，越小越快。X轴100对应2.306s走80mm；200对应2.593走80mm；60对应92mm/s
 int SLEEP = 1000;
 int W = 100;
@@ -119,7 +119,6 @@ void Move_() {
 			Step_((Dimension)X, (Direction)BACK);
 			x--;
 		}
-		Step_((Dimension)Y, (Direction)FRONT);
 	}
 	CloseFile_();
 }
@@ -177,8 +176,8 @@ void OpenFile_(String Name) {
 
 	Serial.println(W);
 	Serial.println(H);
-	STEPX = STEPXX / N;    //每布的距离，越大越长。X轴大概640对应200像素
-	STEPY = STEPYY / N; //Y轴大概600对应200像素 
+	STEPX = STEPXX / N *10;    //每布的距离，越大越长。X轴大概640对应200像素
+	STEPY = STEPYY / N *10; //Y轴大概600对应200像素 
 }
 
 void CloseFile_() {
@@ -242,13 +241,13 @@ void setup()
 
 	do {
 		BT.write('K');
-		Serial.println("K");
+		Serial.println("开始确认蓝牙配对情况");
 		delay(500);
 		if (BT.available()) {
 			char val = BT.read();
 			if (val == 'K') {
 				BT.write("Y");
-				Serial.println("Y");
+				Serial.println("接收到蓝牙信息");
 				break;
 			}
 		}
@@ -256,6 +255,7 @@ void setup()
 	while (BT.available()) {
 		BT.read();
 	}
+	Serial.println("蓝牙完成连接");
 }
 
 // Add the main program code into the continuous loop() function

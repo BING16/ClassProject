@@ -45,10 +45,10 @@ void setup()
 			//Serial.write(val+'0');
 			if (val == 'K') {
 				BT.write(val);
-				Serial.println(val);
+				Serial.println("接收到蓝牙信息");
 			}
 			else if (val == 'Y') {
-				Serial.println(val);
+				Serial.println("接收到确认信息");
 				break;
 			}
 			delay(500);
@@ -57,6 +57,7 @@ void setup()
 	while (BT.available()) {
 		BT.read();
 	}
+	Serial.println("蓝牙完成连接");
 	LED_(0);
 }
 
