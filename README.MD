@@ -9,4 +9,4 @@ v2.0 具备两个Arduino间蓝牙通信功能，具备读取SD卡文件功能。
 预计v3.0功能：
 连接Pynq板、语音唤醒及指令、简笔画绘图
 
-详情参见：bing16.xyz/1.html
+详情参见：bing16.xyz/%E4%B9%8C%E6%9C%89%E4%B9%8B%E4%B9%A1/ClassProject.html
